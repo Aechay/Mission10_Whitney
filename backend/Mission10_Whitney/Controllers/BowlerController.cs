@@ -38,7 +38,6 @@ namespace Mission10_Whitney.Controllers
                         TeamName = x.Team.TeamName
                     }
                 })
-                .Where(x => x.TeamId == 1 || x.TeamId == 2)
                 .ToList();
             
             return(BowlerList);

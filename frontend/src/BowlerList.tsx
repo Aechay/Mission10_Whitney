@@ -36,26 +36,28 @@ function BowlerList() {
             </tr>
           </thead>
           <tbody>
-            {bowlers.map((bowler: bowler) => (
-              <tr key={bowler.bowlerId}>
-                {bowler.bowlerMiddleInit ? (
-                  <td>
-                    {bowler.bowlerFirstName} {bowler.bowlerMiddleInit}.{' '}
-                    {bowler.bowlerLastName}
-                  </td>
-                ) : (
-                  <td>
-                    {bowler.bowlerFirstName} {bowler.bowlerLastName}
-                  </td>
-                )}
-                <td>{bowler.team.teamName}</td>
-                <td>{bowler.bowlerAddress}</td>
-                <td>{bowler.bowlerCity}</td>
-                <td>{bowler.bowlerState}</td>
-                <td>{bowler.bowlerZip}</td>
-                <td>{bowler.bowlerPhoneNumber}</td>
-              </tr>
-            ))}
+            {bowlers
+              .filter((bowler) => bowler.teamId === 1 || bowler.teamId === 2)
+              .map((bowler: bowler) => (
+                <tr key={bowler.bowlerId}>
+                  {bowler.bowlerMiddleInit ? (
+                    <td>
+                      {bowler.bowlerFirstName} {bowler.bowlerMiddleInit}.{' '}
+                      {bowler.bowlerLastName}
+                    </td>
+                  ) : (
+                    <td>
+                      {bowler.bowlerFirstName} {bowler.bowlerLastName}
+                    </td>
+                  )}
+                  <td>{bowler.team.teamName}</td>
+                  <td>{bowler.bowlerAddress}</td>
+                  <td>{bowler.bowlerCity}</td>
+                  <td>{bowler.bowlerState}</td>
+                  <td>{bowler.bowlerZip}</td>
+                  <td>{bowler.bowlerPhoneNumber}</td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </Container>
